@@ -7,3 +7,4 @@ langchain-openai
 langchain-experimental
 neo4j
 python-dotenv==1.0.1
+pypdf
