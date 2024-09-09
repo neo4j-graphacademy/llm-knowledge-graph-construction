@@ -162,7 +162,7 @@ cython_debug/
 #.idea/
 
 # CSV files
-*.csv
+# *.csv
 
 # local install
 .neo4j
