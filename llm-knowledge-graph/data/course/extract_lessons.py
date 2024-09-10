@@ -1,6 +1,6 @@
-# Used to create the /data/asciidoc/courses directory
-# Extracts the lesson.adoc files and directory structure from the 
-# neo4j-graphacademy/courses/asciidoc repo
+# Used to create the /data/courses/pdf docs directory
+# Extracts the lesson.adoc files and creates a pdf for each lesson
+# neo4j-graphacademy/courses repo
 import os
 import glob
 
@@ -11,6 +11,7 @@ DATA_PATH = "llm-knowledge-graph/data/course"
 PDF_PATH = os.path.join(DATA_PATH, 'pdfs')
 FONT_PATH = os.path.join(DATA_PATH, 'CourierPrime-Regular.ttf')
 
+# Extract just the llm-fundamentals courses
 SEARCH = "/**/llm-fundamentals/**/lesson.adoc"
 # Extract all courses
 # SEARCH = "/**/lesson.adoc"
@@ -38,10 +39,3 @@ for file in glob.glob(COURSES_REPO_PATH + SEARCH, recursive=True):
     with open(file, "r") as f:
         text = f.read()
         create_pdf(text, os.path.join(PDF_PATH, pdf_file_name))
-
-
-    # copy the files to the new location
-    # path, filename = os.path.split(file)
-    # path = os.path.join(DATA_OUTPUT_PATH, path[len(COURSES_REPO_PATH)+1:])
-    # os.makedirs(path, exist_ok=True)
-    # shutil.copy(file, path)

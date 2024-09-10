@@ -1,19 +1,21 @@
 from langchain_openai import OpenAIEmbeddings
 from langchain_community.graphs import Neo4jGraph
-from langchain_community.vectorstores import Neo4jVector
 
 embedding_provider = OpenAIEmbeddings(
-    openai_api_key="sk-...",
+    openai_api_key=os.getenv('OPENAI_API_KEY'),
     model="text-embedding-ada-002"
     )
 
 graph = Neo4jGraph(
-    url="bolt://localhost:7687",
-    username="neo4j",
-    password="pleaseletmein"
+    url=os.getenv('NEO4J_URI'),
+    username=os.getenv('NEO4J_USERNAME'),
+    password=os.getenv('NEO4J_PASSWORD')
 )
 
 for chunk in chunks:
+
+    # Create a unique identifier for the chunk
+    chunk_id = f"{chunk.metadata["source"]}.{chunk.metadata["page"]}"
 
     # Embed the chunk
     chunk_embedding = embedding_provider.embed_query(chunk.page_content)
@@ -21,17 +23,19 @@ for chunk in chunks:
     # Add the Document and Chunk nodes to the graph
     properties = {
         "filename": chunk.metadata["source"],
+        "chunk_id": chunk_id,
         "text": chunk.page_content,
         # Create the embedding for the chunk
         "embedding": chunk_embedding
     }
-    
+
     graph.query("""
-        MERGE (d:Document {fileName: $filename})
-        MERGE (c:Chunk {fileName: $filename})
+        MERGE (d:Document {id: $filename})
+        MERGE (c:Chunk {id: $chunk_id})
         SET c.text = $text
-        CALL db.create.setNodeVectorProperty(c, 'embedding', $embedding)
         MERGE (d)<-[:PART_OF]-(c)
+        WITH c
+        CALL db.create.setNodeVectorProperty(c, 'embedding', $embedding)
         """, 
         properties
     )
