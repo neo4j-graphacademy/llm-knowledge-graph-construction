@@ -37,13 +37,28 @@ text_splitter = CharacterTextSplitter(
     chunk_overlap=200,
 )
 
-# tag::doc_transformer[]
+# tag::allowed_nodes[]
+doc_transformer = LLMGraphTransformer(
+    llm=llm,
+    allowed_nodes=["Technology", "Concept", "Skill", "Event", "Person", "Object"],
+    )
+# tag::allowed_nodes[]
+
+# tag::allowed_relationships[]
+doc_transformer = LLMGraphTransformer(
+    llm=llm,
+    allowed_nodes=["Technology", "Concept", "Skill", "Event", "Person", "Object"],
+    allowed_relationships=["USES", "HAS", "IS", "AT", "KNOWS"],
+    )
+# tag::allowed_relationships[]
+
+# tag::node_properties[]
 doc_transformer = LLMGraphTransformer(
     llm=llm,
     allowed_nodes=["Technology", "Concept", "Skill", "Event", "Person", "Object"],
     node_properties=["name", "description"],
     )
-# end::doc_transformer[]
+# end::node_properties[]
 
 docs = loader.load()
 chunks = text_splitter.split_documents(docs)

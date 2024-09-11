@@ -29,6 +29,11 @@ graph = Neo4jGraph(
     password=os.getenv('NEO4J_PASSWORD')
 )
 
+doc_transformer = LLMGraphTransformer(
+    llm=llm,
+    )
+
+# Load and split the documents
 loader = DirectoryLoader(DOCS_PATH, glob="**/*.pdf", loader_cls=PyPDFLoader)
 
 text_splitter = CharacterTextSplitter(
@@ -36,10 +41,6 @@ text_splitter = CharacterTextSplitter(
     chunk_size=1500,
     chunk_overlap=200,
 )
-
-doc_transformer = LLMGraphTransformer(
-    llm=llm,
-    )
 
 docs = loader.load()
 chunks = text_splitter.split_documents(docs)
@@ -71,7 +72,7 @@ for chunk in chunks:
         properties
     )
 
-    # Generate the graph docs
+    # Generate the entities and relationships from the chunk
     graph_docs = doc_transformer.convert_to_graph_documents([chunk])
 
     # Map the entities in the graph documents to the chunk node

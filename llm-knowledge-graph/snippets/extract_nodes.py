@@ -11,5 +11,5 @@ doc_transformer = LLMGraphTransformer(
     )
 
 for chunk in chunks:
-    # Generate the graph docs
+    # Generate the entities and relationships from the chunk
     graph_docs = doc_transformer.convert_to_graph_documents([chunk])

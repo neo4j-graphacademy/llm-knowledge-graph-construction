@@ -25,7 +25,6 @@ for chunk in chunks:
         "filename": chunk.metadata["source"],
         "chunk_id": chunk_id,
         "text": chunk.page_content,
-        # Create the embedding for the chunk
         "embedding": chunk_embedding
     }
 
@@ -41,7 +40,6 @@ for chunk in chunks:
     )
 
 # Create the vector index
-
 graph.query("""
     CREATE VECTOR INDEX `vector`
     FOR (c: Chunk) ON (c.embedding)
