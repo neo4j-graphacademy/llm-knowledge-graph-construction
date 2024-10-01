@@ -65,6 +65,9 @@ cypher_chain = GraphCypherQAChain.from_llm(
 )
 # tag::cypher_chain[]
 
+def run_cypher(q):
+    return cypher_chain.invoke({"query": q})
+
 while True:
     q = input("> ")
-    cypher_chain.invoke({"query": q})
+    print(run_cypher(q))

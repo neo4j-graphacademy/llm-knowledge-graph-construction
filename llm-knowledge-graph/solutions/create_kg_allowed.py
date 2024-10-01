@@ -45,19 +45,19 @@ doc_transformer = LLMGraphTransformer(
 # end::allowed_nodes[]
 
 # tag::allowed_relationships[]
-doc_transformer = LLMGraphTransformer(
-    llm=llm,
-    allowed_nodes=["Technology", "Concept", "Skill", "Event", "Person", "Object"],
-    allowed_relationships=["USES", "HAS", "IS", "AT", "KNOWS"],
-    )
+# doc_transformer = LLMGraphTransformer(
+#     llm=llm,
+#     allowed_nodes=["Technology", "Concept", "Skill", "Event", "Person", "Object"],
+#     allowed_relationships=["USES", "HAS", "IS", "AT", "KNOWS"],
+#     )
 # end::allowed_relationships[]
 
 # tag::node_properties[]
-doc_transformer = LLMGraphTransformer(
-    llm=llm,
-    allowed_nodes=["Technology", "Concept", "Skill", "Event", "Person", "Object"],
-    node_properties=["name", "description"],
-    )
+# doc_transformer = LLMGraphTransformer(
+#     llm=llm,
+#     allowed_nodes=["Technology", "Concept", "Skill", "Event", "Person", "Object"],
+#     node_properties=["name", "description"],
+#     )
 # end::node_properties[]
 
 docs = loader.load()

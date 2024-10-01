@@ -77,6 +77,9 @@ cypher_chain = GraphCypherQAChain.from_llm(
     verbose=True,
 )
 
+def run_cypher(q):
+    return cypher_chain.invoke({"query": q})
+
 while True:
     q = input("> ")
-    cypher_chain.invoke({"query": q})
+    print(run_cypher(q))
