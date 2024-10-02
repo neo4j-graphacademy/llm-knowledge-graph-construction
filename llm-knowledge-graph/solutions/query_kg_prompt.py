@@ -18,7 +18,7 @@ graph = Neo4jGraph(
     password=os.getenv('NEO4J_PASSWORD')
 )
 
-# tag::case
+# tag::case[]
 CYPHER_GENERATION_TEMPLATE = """Task:Generate Cypher statement to query a graph database.
 Instructions:
 Use only the provided relationship types and properties in the schema.
@@ -37,9 +37,9 @@ WHERE e.id =~ '(?i)entityName'
 
 The question is:
 {question}"""
-# end::case
+# end::case[]
 
-# tag::documents
+# tag::documents[]
 CYPHER_GENERATION_TEMPLATE = """Task:Generate Cypher statement to query a graph database.
 Instructions:
 Use only the provided relationship types and properties in the schema.
@@ -63,7 +63,7 @@ RETURN d
 
 The question is:
 {question}"""
-# end::documents
+# end::documents[]
 
 cypher_generation_prompt = PromptTemplate(
     template=CYPHER_GENERATION_TEMPLATE,
