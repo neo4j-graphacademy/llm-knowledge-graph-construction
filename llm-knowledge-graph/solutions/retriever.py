@@ -25,15 +25,15 @@ graph = Neo4jGraph(
     password=os.getenv('NEO4J_PASSWORD')
 )
 
-# tag::chunk_vector
+# tag::chunk_vector[]
 chunk_vector = Neo4jVector.from_existing_index(
     embedding_provider,
     graph=graph,
     index_name="vector",
     embedding_node_property="embedding",
     text_node_property="text",
-# end::chunk_vector
-# tag::retrieval_query
+# end::chunk_vector[]
+# tag::retrieval_query[]
     retrieval_query="""
 // get the document
 MATCH (node)-[:PART_OF]->(d:Document)
@@ -60,10 +60,10 @@ RETURN
         entities: kg
     } AS metadata
 """
-# end::retrieval_query 
+# end::retrieval_query[]
 )
 
-# tag::retriever
+# tag::retriever[]
 instructions = (
     "Use the given context to answer the question."
     "Reply with an answer that includes the id of the document and other relevant information from the text."
@@ -84,7 +84,7 @@ chunk_retriever = create_retrieval_chain(
     chunk_retriever, 
     chunk_chain
 )
-#end::retriever
+# end::retriever[]
 
 def find_chunk(q):
     return chunk_retriever.invoke({"input": q})
