@@ -57,6 +57,7 @@ RETURN
         entities: kg
     } AS metadata
 """
+)
 
 instructions = (
     "Use the given context to answer the question."
