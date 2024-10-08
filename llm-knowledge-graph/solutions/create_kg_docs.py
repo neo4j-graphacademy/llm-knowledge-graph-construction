@@ -55,7 +55,8 @@ chunks = text_splitter.split_documents(docs)
 
 for chunk in chunks:
 
-    chunk_id = f"{chunk.metadata["source"]}.{chunk.metadata["page"]}"
+    filename = os.path.basename(chunk.metadata["source"])
+    chunk_id = f"{filename}.{chunk.metadata["page"]}"
     print("Processing -", chunk_id)
 
     # Embed the chunk
