@@ -28,7 +28,7 @@ for chunk in chunks:
         "filename": chunk.metadata["source"],
         "chunk_id": chunk_id,
         "text": chunk.page_content,
-        "embedding": chunk_embedding
+        "textEmbedding": chunk_embedding
     }
 
     graph.query("""
@@ -37,7 +37,7 @@ for chunk in chunks:
         SET c.text = $text
         MERGE (d)<-[:PART_OF]-(c)
         WITH c
-        CALL db.create.setNodeVectorProperty(c, 'embedding', $embedding)
+        CALL db.create.setNodeVectorProperty(c, 'textEmbedding', $embedding)
         """, 
         properties
     )
