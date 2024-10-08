@@ -28,8 +28,8 @@ graph = Neo4jGraph(
 chunk_vector = Neo4jVector.from_existing_index(
     embedding_provider,
     graph=graph,
-    index_name="vector",
-    embedding_node_property="embedding",
+    index_name="chunkVector",
+    embedding_node_property="textEmbedding",
     text_node_property="text",
     retrieval_query="""
 // get the document

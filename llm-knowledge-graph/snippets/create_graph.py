@@ -2,7 +2,8 @@ from langchain_community.graphs.graph_document import Node, Relationship
 
 for chunk in chunks:
     
-    chunk_id = f"{chunk.metadata["source"]}.{chunk.metadata["page"]}"
+    filename = os.path.basename(chunk.metadata["source"])
+    chunk_id = f"{filename}.{chunk.metadata["page"]}"
 
     graph_docs = doc_transformer.convert_to_graph_documents([chunk])
 

@@ -14,8 +14,11 @@ graph = Neo4jGraph(
 
 for chunk in chunks:
 
-    # Create a unique identifier for the chunk
-    chunk_id = f"{chunk.metadata["source"]}.{chunk.metadata["page"]}"
+    # Extract the filename
+    filename = os.path.basename(chunk.metadata["source"])
+
+    # Create a unique identifier for the chunk    
+    chunk_id = f"{filename}.{chunk.metadata["page"]}"
 
     # Embed the chunk
     chunk_embedding = embedding_provider.embed_query(chunk.page_content)
@@ -25,7 +28,7 @@ for chunk in chunks:
         "filename": chunk.metadata["source"],
         "chunk_id": chunk_id,
         "text": chunk.page_content,
-        "embedding": chunk_embedding
+        "textEmbedding": chunk_embedding
     }
 
     graph.query("""
@@ -34,7 +37,7 @@ for chunk in chunks:
         SET c.text = $text
         MERGE (d)<-[:PART_OF]-(c)
         WITH c
-        CALL db.create.setNodeVectorProperty(c, 'embedding', $embedding)
+        CALL db.create.setNodeVectorProperty(c, 'textEmbedding', $embedding)
         """, 
         properties
     )

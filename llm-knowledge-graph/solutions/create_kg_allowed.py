@@ -66,7 +66,8 @@ chunks = text_splitter.split_documents(docs)
 
 for chunk in chunks:
 
-    chunk_id = f"{chunk.metadata["source"]}.{chunk.metadata["page"]}"
+    filename = os.path.basename(chunk.metadata["source"])
+    chunk_id = f"{filename}.{chunk.metadata["page"]}"
     print("Processing -", chunk_id)
 
     # Embed the chunk
@@ -86,7 +87,7 @@ for chunk in chunks:
         SET c.text = $text
         MERGE (d)<-[:PART_OF]-(c)
         WITH c
-        CALL db.create.setNodeVectorProperty(c, 'embedding', $embedding)
+        CALL db.create.setNodeVectorProperty(c, 'textEmbedding', $embedding)
         """, 
         properties
     )
@@ -118,9 +119,9 @@ for chunk in chunks:
 
 # Create the vector index
 graph.query("""
-    CREATE VECTOR INDEX `vector`
+    CREATE VECTOR INDEX `chunkVector`
     IF NOT EXISTS
-    FOR (c: Chunk) ON (c.embedding)
+    FOR (c: Chunk) ON (c.textEmbedding)
     OPTIONS {indexConfig: {
     `vector.dimensions`: 1536,
     `vector.similarity_function`: 'cosine'
