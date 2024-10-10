@@ -94,7 +94,7 @@ for chunk in chunks:
                 )
 
     # add the graph documents to the graph
-    graph.add_graph_documents([graph_doc])
+    graph.add_graph_documents(graph_docs)
 
 # Create the vector index
 graph.query("""
