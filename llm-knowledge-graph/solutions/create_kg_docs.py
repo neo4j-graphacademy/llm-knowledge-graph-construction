@@ -64,7 +64,7 @@ for chunk in chunks:
 
     # Add the Document and Chunk nodes to the graph
     properties = {
-        "filename": chunk.metadata["source"],
+        "filename": filename,
         "chunk_id": chunk_id,
         "text": chunk.page_content,
         "embedding": chunk_embedding
