@@ -35,12 +35,12 @@ chunk_vector = Neo4jVector.from_existing_index(
 // get the document
 MATCH (node)-[:PART_OF]->(d:Document)
 WITH node, score, d
-// get the entities
-MATCH (node)-[:HAS_ENTITY]-(e)
-WITH node, score, d, collect(e) as nodeslist
-// find the relationships between the entities related to the document
+
+// get the entities and relationships for the document
+MATCH (node)-[:HAS_ENTITY]->(e)
 MATCH p = (e)-[r]-(e2)
-WHERE e in nodeslist and e2 in nodeslist
+WHERE (node)-[:HAS_ENTITY]->(e2)
+
 // unwind the path, create a string of the entities and relationships
 UNWIND relationships(p) as rels
 WITH 
