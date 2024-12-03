@@ -5,7 +5,7 @@ load_dotenv()
 from llm import llm
 from graph import graph
 
-from langchain.chains import GraphCypherQAChain
+from langchain_neo4j import GraphCypherQAChain
 from langchain.prompts import PromptTemplate
 
 CYPHER_GENERATION_TEMPLATE = """Task:Generate Cypher statement to query a graph database.
@@ -62,6 +62,7 @@ cypher_chain = GraphCypherQAChain.from_llm(
     graph=graph,
     cypher_prompt=cypher_generation_prompt,
     verbose=True,
+    allow_dangerous_requests=True
 )
 
 def run_cypher(q):
