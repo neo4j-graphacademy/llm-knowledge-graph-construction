@@ -1,5 +1,5 @@
 from langchain_openai import OpenAIEmbeddings
-from langchain_community.graphs import Neo4jGraph
+from langchain_neo4j import Neo4jGraph
 
 embedding_provider = OpenAIEmbeddings(
     openai_api_key=os.getenv('OPENAI_API_KEY'),

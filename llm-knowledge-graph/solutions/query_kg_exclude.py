@@ -1,7 +1,6 @@
 import os
 from langchain_openai import ChatOpenAI
-from langchain_community.graphs import Neo4jGraph
-from langchain.chains import GraphCypherQAChain
+from langchain_neo4j import GraphCypherQAChain, Neo4jGraph
 from langchain.prompts import PromptTemplate
 
 from dotenv import load_dotenv
@@ -54,6 +53,7 @@ cypher_chain = GraphCypherQAChain.from_llm(
     cypher_prompt=cypher_generation_prompt,
     verbose=True,
     exclude_types=["Session", "Message", "LAST_MESSAGE", "NEXT"],
+    allow_dangerous_requests=True
 )
 # end::exclude_types[]
 
