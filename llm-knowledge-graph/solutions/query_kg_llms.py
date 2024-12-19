@@ -63,7 +63,7 @@ cypher_chain = GraphCypherQAChain.from_llm(
     verbose=True,
     allow_dangerous_requests=True
 )
-# tag::cypher_chain[]
+# end::cypher_chain[]
 
 def run_cypher(q):
     return cypher_chain.invoke({"query": q})
