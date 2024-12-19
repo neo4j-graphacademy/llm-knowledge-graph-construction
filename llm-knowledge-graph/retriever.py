@@ -4,10 +4,9 @@ load_dotenv()
 
 from langchain_openai import ChatOpenAI
 from langchain_openai import OpenAIEmbeddings
-from langchain_community.graphs import Neo4jGraph
-from langchain_community.vectorstores import Neo4jVector
+from langchain_neo4j import Neo4jGraph, Neo4jVector
 from langchain.chains.combine_documents import create_stuff_documents_chain
-from langchain.chains import create_retrieval_chain
+from langchain.chains.retrieval import create_retrieval_chain
 from langchain_core.prompts import ChatPromptTemplate
 
 llm = ChatOpenAI(

@@ -5,7 +5,7 @@ load_dotenv()
 from llm import llm
 from graph import graph
 
-from langchain.chains import GraphCypherQAChain
+from langchain_neo4j import GraphCypherQAChain
 from langchain.prompts import PromptTemplate
 
 # You task is to update this tool to generate and run a Cypher statement, and return the results.
