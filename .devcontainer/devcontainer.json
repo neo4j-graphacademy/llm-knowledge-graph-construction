@@ -1,0 +1,26 @@
+{
+	"name": "Constructing Knowledge Graphs with LLMs",
+	"image": "mcr.microsoft.com/devcontainers/python:1-3.12-bullseye",
+	"postCreateCommand": "bash .devcontainer/post_create.sh",
+	"customizations": {
+		"codespaces": {
+			"openFiles": [
+				"SETUP.md",
+				".env.example",
+				"llm-knowledge-graph/test_environment.py"
+				]
+		},
+		"vscode": {
+			"settings": {
+				"python.createEnvironment.trigger": "off",
+				"workbench.editorAssociations": {
+					"*.md": "vscode.markdown.preview.editor"
+				}
+			},
+			"extensions": [
+				"ms-python.python",
+				"ms-python.debugpy"
+				]
+		}
+	}
+}
