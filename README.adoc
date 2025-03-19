@@ -1,8 +1,8 @@
 = Constructing Knowledge Graphs with LLMs
 
-This repository accompanies the link:graphacademy.neo4j.com/courses/llm-knowledge-graphs-construction[Constructing Knowledge Graphs with LLMs^] on link:graphacademy.neo4j.com/courses/genai-workshop[GraphAcademy^].
+This repository accompanies the link:https://graphacademy.neo4j.com/courses/llm-knowledge-graph-construction[Constructing Knowledge Graphs with LLMs^] on link:https://graphacademy.neo4j.com/courses/llm-knowledge-graph-construction[GraphAcademy^].
 
-For a complete walkthrough of this repository, link:graphacademy.neo4j.com/courses/llm-knowledge-graphs-construction[enrol now^].
+For a complete walkthrough of this repository, link:https://graphacademy.neo4j.com/courses/llm-knowledge-graph-construction[enrol now^].
 
 == Tests
 
@@ -21,4 +21,4 @@ pip install pytest
 . Run the tests
 +
 [source,sh]
-pytest llm_knowledge_graphs/solutions
+pytest llm-knowledge-graph/solutions
