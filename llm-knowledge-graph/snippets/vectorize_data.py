@@ -28,7 +28,7 @@ for chunk in chunks:
         "filename": filename,
         "chunk_id": chunk_id,
         "text": chunk.page_content,
-        "textEmbedding": chunk_embedding
+        "embedding": chunk_embedding
     }
 
     graph.query("""
@@ -45,7 +45,7 @@ for chunk in chunks:
 # Create the vector index
 graph.query("""
     CREATE VECTOR INDEX `vector`
-    FOR (c: Chunk) ON (c.embedding)
+    FOR (c: Chunk) ON (c.testEmbedding)
     OPTIONS {indexConfig: {
     `vector.dimensions`: 1536,
     `vector.similarity_function`: 'cosine'
