@@ -1,0 +1,2 @@
+# NewMind AI bitirme projesi.
+
