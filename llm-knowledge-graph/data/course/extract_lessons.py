@@ -11,8 +11,8 @@ DATA_PATH = "llm-knowledge-graph/data/course"
 PDF_PATH = os.path.join(DATA_PATH, 'pdfs')
 FONT_PATH = os.path.join(DATA_PATH, 'CourierPrime-Regular.ttf')
 
-# Extract just the llm-fundamentals courses
-SEARCH = "/**/llm-fundamentals/**/lesson.adoc"
+# Extract just the genai-fundamentals courses
+SEARCH = "/**/genai-fundamentals/**/lesson.adoc"
 # Extract all courses
 # SEARCH = "/**/lesson.adoc"
 
