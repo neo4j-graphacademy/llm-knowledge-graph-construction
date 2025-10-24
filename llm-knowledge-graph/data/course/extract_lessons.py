@@ -11,7 +11,7 @@ COURSES_REPO_PATH = "../../courses"
 DATA_PATH = "llm-knowledge-graph/data/course"
 PDF_PATH = os.path.join(DATA_PATH, "pdfs")
 FONT_PATH = os.path.join(DATA_PATH, "CourierPrime-Regular.ttf")
-DOCS_CSV_PATH = os.path.join(DATA_PATH,"docs.csv")
+DOCS_CSV_PATH = os.path.join(PDF_PATH,"docs.csv")
 
 docs_csv = csv.DictWriter(
     open(DOCS_CSV_PATH, "w", encoding="utf8", newline=""), 
