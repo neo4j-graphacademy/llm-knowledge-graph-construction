@@ -1,0 +1,16 @@
+filename,course,module,lesson,url
+genai-fundamentals_1-generative-ai_1-what-is-genai.pdf,genai-fundamentals,1-generative-ai,1-what-is-genai,https://graphacademy.neo4j.com/courses/genai-fundamentals/1-generative-ai/1-what-is-genai
+genai-fundamentals_1-generative-ai_2-considerations.pdf,genai-fundamentals,1-generative-ai,2-considerations,https://graphacademy.neo4j.com/courses/genai-fundamentals/1-generative-ai/2-considerations
+genai-fundamentals_1-generative-ai_3-context.pdf,genai-fundamentals,1-generative-ai,3-context,https://graphacademy.neo4j.com/courses/genai-fundamentals/1-generative-ai/3-context
+genai-fundamentals_2-rag_1-what-is-rag.pdf,genai-fundamentals,2-rag,1-what-is-rag,https://graphacademy.neo4j.com/courses/genai-fundamentals/2-rag/1-what-is-rag
+genai-fundamentals_2-rag_2-vector-search.pdf,genai-fundamentals,2-rag,2-vector-search,https://graphacademy.neo4j.com/courses/genai-fundamentals/2-rag/2-vector-search
+genai-fundamentals_2-rag_3-vector-index.pdf,genai-fundamentals,2-rag,3-vector-index,https://graphacademy.neo4j.com/courses/genai-fundamentals/2-rag/3-vector-index
+genai-fundamentals_2-rag_4-graphrag.pdf,genai-fundamentals,2-rag,4-graphrag,https://graphacademy.neo4j.com/courses/genai-fundamentals/2-rag/4-graphrag
+genai-fundamentals_3-knowledge-graphs_1-what-is-a-knowledge-graph.pdf,genai-fundamentals,3-knowledge-graphs,1-what-is-a-knowledge-graph,https://graphacademy.neo4j.com/courses/genai-fundamentals/3-knowledge-graphs/1-what-is-a-knowledge-graph
+genai-fundamentals_3-knowledge-graphs_2-constructing-knowledge-graphs.pdf,genai-fundamentals,3-knowledge-graphs,2-constructing-knowledge-graphs,https://graphacademy.neo4j.com/courses/genai-fundamentals/3-knowledge-graphs/2-constructing-knowledge-graphs
+genai-fundamentals_4-integrating-neo4j_1-neo4j-graphrag.pdf,genai-fundamentals,4-integrating-neo4j,1-neo4j-graphrag,https://graphacademy.neo4j.com/courses/genai-fundamentals/4-integrating-neo4j/1-neo4j-graphrag
+genai-fundamentals_4-integrating-neo4j_2-vector-retriever.pdf,genai-fundamentals,4-integrating-neo4j,2-vector-retriever,https://graphacademy.neo4j.com/courses/genai-fundamentals/4-integrating-neo4j/2-vector-retriever
+genai-fundamentals_4-integrating-neo4j_3-rag.pdf,genai-fundamentals,4-integrating-neo4j,3-rag,https://graphacademy.neo4j.com/courses/genai-fundamentals/4-integrating-neo4j/3-rag
+genai-fundamentals_4-integrating-neo4j_4-vector-graph.pdf,genai-fundamentals,4-integrating-neo4j,4-vector-graph,https://graphacademy.neo4j.com/courses/genai-fundamentals/4-integrating-neo4j/4-vector-graph
+genai-fundamentals_4-integrating-neo4j_5-text-to-cypher.pdf,genai-fundamentals,4-integrating-neo4j,5-text-to-cypher,https://graphacademy.neo4j.com/courses/genai-fundamentals/4-integrating-neo4j/5-text-to-cypher
+genai-fundamentals_4-integrating-neo4j_6-frameworks.pdf,genai-fundamentals,4-integrating-neo4j,6-frameworks,https://graphacademy.neo4j.com/courses/genai-fundamentals/4-integrating-neo4j/6-frameworks
