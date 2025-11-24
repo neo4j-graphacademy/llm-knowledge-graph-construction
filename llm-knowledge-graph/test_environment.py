@@ -37,6 +37,7 @@ class TestEnvironment(unittest.TestCase):
         self.env_variable_exists('NEO4J_URI')
         self.env_variable_exists('NEO4J_USERNAME')
         self.env_variable_exists('NEO4J_PASSWORD')
+        self.env_variable_exists('NEO4J_DATABASE')
         TestEnvironment.skip_neo4j_test = False
 
     def test_openai_connection(self):
