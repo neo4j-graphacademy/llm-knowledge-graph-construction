@@ -37,6 +37,7 @@ class TestEnvironment(unittest.TestCase):
         self.env_variable_exists('NEO4J_URI')
         self.env_variable_exists('NEO4J_USERNAME')
         self.env_variable_exists('NEO4J_PASSWORD')
+        self.env_variable_exists('NEO4J_DATABASE')
         TestEnvironment.skip_neo4j_test = False
 
     def test_openai_connection(self):
@@ -56,6 +57,10 @@ class TestEnvironment(unittest.TestCase):
             "OpenAI connection failed. Check the OPENAI_API_KEY key in .env file.")
 
     def test_neo4j_connection(self):
+
+        msg = "Neo4j connection failed. Check the NEO4J_URI, NEO4J_USERNAME, NEO4J_PASSWORD, NEO4j_DATABASE values in .env file."
+        connected = False
+
         if TestEnvironment.skip_neo4j_test:
             self.skipTest("Skipping Neo4j connection test")
 
@@ -68,15 +73,21 @@ class TestEnvironment(unittest.TestCase):
         )
         try:
             driver.verify_connectivity()
-            connected = True
-        except Exception as e:
-            connected = False
+            try:
+                driver.execute_query("RETURN true", database_=os.getenv('NEO4J_DATABASE'))
+                connected = True
 
+            except Exception as e:
+                msg = "Neo4j database query failed. Check the NEO4J_DATABASE value in .env file."
+                
+        except Exception as e:
+            msg = "Neo4j verify connection failed. Check the NEO4J_URI, NEO4J_USERNAME, and NEO4J_PASSWORD values in .env file."
+            
         driver.close()
 
         self.assertTrue(
             connected,
-            "Neo4j connection failed. Check the NEO4J_URI, NEO4J_USERNAME, and NEO4J_PASSWORD values in .env file."
+            msg
             )
         
 def suite():
